@@ -1,5 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Monitor monitor = new Monitor();
+        System.out.println(monitor.getResolution());
+
+
+        monitor.setLowResolution();
+        System.out.println(monitor.getResolution());
     }
 }
