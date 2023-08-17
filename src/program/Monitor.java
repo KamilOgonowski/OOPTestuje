@@ -1,3 +1,5 @@
+package program;
+
 public class Monitor {
 
     private int width = 3840;

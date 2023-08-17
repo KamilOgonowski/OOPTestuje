@@ -1,3 +1,7 @@
+package program;
+
+import program.drive.Drive;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +17,6 @@ public class Computer {
     public Computer(Monitor monitor, Drive drive)  {
         this.monitor = monitor;
         this.drive = drive;
-    }
-
-    public void setHeadphones(HeadPhones headphones) {
-        this.headphones = headphones;
     }
 
     public Monitor getMonitor() {
@@ -37,6 +37,10 @@ public class Computer {
 
     public HeadPhones getHeadphones() {
         return headphones;
+    }
+
+    public void setHeadphones(HeadPhones headphones) {
+        this.headphones = headphones;
     }
 
     public List<USBDevice> getUsbDevices() {
