@@ -1,12 +1,16 @@
 package program;
 
+import program.drive.HDDDrive;
+import program.drive.SSDDrive;
+
 public class Main {
     public static void main(String[] args) {
         Monitor monitor = new Monitor();
-        System.out.println(monitor.getResolution());
+//        HDDDrive drive = new HDDDrive();
+        SSDDrive drive = new SSDDrive();
+        Computer computer = new Computer(monitor, drive);
 
-
-        monitor.setLowResolution();
-        System.out.println(monitor.getResolution());
+        drive.addFile(new File("jnsp.jpg"));
+        drive.listFiles();
     }
 }
