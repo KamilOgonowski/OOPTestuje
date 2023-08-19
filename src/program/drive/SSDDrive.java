@@ -1,6 +1,6 @@
 package program.drive;
 
-import program.File;
+import program.file.File;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -19,7 +19,6 @@ public class SSDDrive implements Drive{
         for (File file : fileCollection){
             System.out.println(file.getName());
         }
-
     }
 
     @Override

@@ -1,6 +1,6 @@
 package program.drive;
 
-import program.File;
+import program.file.File;
 
 public interface Drive {
 
