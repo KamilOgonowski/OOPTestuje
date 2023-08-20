@@ -1,32 +1,37 @@
 package program;
 
-import program.drive.SSDDrive;
 import program.file.File;
-import program.usbdevice.MemoryStick;
-import program.usbdevice.Mouse;
+import program.file.imagefile.GIFImageFile;
+import program.file.imagefile.JPGImageFile;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Monitor monitor = new Monitor();
-//        HDDDrive drive = new HDDDrive();
-        SSDDrive drive = new SSDDrive();
-        Mouse mouse = new Mouse("Logitech");
-        MemoryStick memoryStick = new MemoryStick("Pendrive");
+        JPGImageFile jpgImageFile = new JPGImageFile("plik1.jpg", 100, 100);
+        GIFImageFile gifImageFile = new GIFImageFile("plik2", 200);
 
-//        USBDevice mouse = new Mouse("Logitech");
-//        USBDevice memoryStick = new MemoryStick("Pendrive");
+        List<File> files = new ArrayList<>();
+        files.add(jpgImageFile);
+        files.add(gifImageFile);
 
-        Computer computer = new Computer(monitor, drive);
+//        for (File file : files){
+//            if (file instanceof JPGImageFile){
+//                System.out.println(file);
+//            } else{
+//                System.out.println(file.getName() + " is not of a JPG extension");
+//            }
+//        }
+        for (File file : files){
+            if (file instanceof JPGImageFile) {
+                System.out.println(file.getName() + " this file has extension: JPG");
+            }else if (file instanceof GIFImageFile) {
+                System.out.println(file.getName() + " this file has extension: GIF");
+            }
+        }
+        GIFImageFile gifImageFile1 = new GIFImageFile("plik.gif", 100);
+        System.out.println(gifImageFile1.getVersion());
 
-        drive.addFile(new File("jnsp.jpg"));
-        drive.listFiles();
-
-        computer.addUSBDevice(memoryStick);
-//        computer.addUSBDevice(mouse);
-        memoryStick.eject();
-
-
-        computer.removeUSBDevice(memoryStick);
-//        computer.removeUSBDevice(mouse);
     }
 }

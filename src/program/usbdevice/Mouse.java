@@ -1,9 +1,7 @@
 package program.usbdevice;
 
 public class Mouse implements USBDevice{
-
     private String name;
-
     public Mouse(String name){
         this.name = name;
     }

@@ -7,10 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SSDDrive implements Drive{
-    Map<String, File> files = new HashMap<>();
+    private Map<String, File> files = new HashMap<>();
     @Override
     public void addFile(File file) {
-        files.put(file.toString(), file);
+        files.put(file.getName(), file);
     }
 
     @Override
@@ -20,7 +20,6 @@ public class SSDDrive implements Drive{
             System.out.println(file.getName());
         }
     }
-
     @Override
     public File findFile(String name) {
        return files.get(name);
