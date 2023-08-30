@@ -62,6 +62,7 @@ public abstract class AbstractDocument extends AbstractFile implements DocumentF
         if (getContent().isEmpty()){
             return "The file " + name + " is empty";
         } else {
+            System.out.println("Loading of the file " + name + "...");
             return getContent();
         }
     }
