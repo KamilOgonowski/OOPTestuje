@@ -1,4 +1,4 @@
-package program.file.imagefile;
+package program.imagefile;
 
 public class GIFImageFile extends AbstractImageFile {
 

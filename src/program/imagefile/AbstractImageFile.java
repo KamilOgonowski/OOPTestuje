@@ -1,4 +1,4 @@
-package program.file.imagefile;
+package program.imagefile;
 
 import program.file.AbstractFile;
 import program.file.FileType;
