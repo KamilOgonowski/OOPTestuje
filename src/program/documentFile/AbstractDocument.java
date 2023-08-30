@@ -5,8 +5,8 @@ import program.file.FileType;
 
 public abstract class AbstractDocument extends AbstractFile implements DocumentFile{
     private String creator;
-    private String content = "[!empty file]";
-    private boolean isOpen;
+    private String content = "";
+    public boolean isOpen;
 
     protected AbstractDocument(String name, int size, String creator){
         super(name, size);
@@ -35,7 +35,10 @@ public abstract class AbstractDocument extends AbstractFile implements DocumentF
 
     public void changeDocumentName(String newName) {
     // check if the file is on drive and then allow change its name - program later
-        name = newName;
+        if (isOpen)
+            System.out.println("Close file first to change it's name!");
+        else
+            name = newName;
     }
 
     public String getCreator() {
@@ -53,5 +56,13 @@ public abstract class AbstractDocument extends AbstractFile implements DocumentF
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String readContent(){
+        if (getContent().isEmpty()){
+            return "The file " + name + " is empty";
+        } else {
+            return getContent();
+        }
     }
 }

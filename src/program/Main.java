@@ -1,12 +1,6 @@
 package program;
 
 import program.documentFile.TxtDocument;
-import program.file.File;
-import program.imagefile.GIFImageFile;
-import program.imagefile.JPGImageFile;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -41,8 +35,12 @@ public class Main {
         txtDocument.closeDocument();
         txtDocument.changeDocumentName("After name change.txt");
         System.out.println(txtDocument.getName());
+
         txtDocument.updateContent();
         System.out.println(txtDocument.getContent());
+        txtDocument.updateContent();
+
+        System.out.println(txtDocument.readContent());
 
     }
 }
