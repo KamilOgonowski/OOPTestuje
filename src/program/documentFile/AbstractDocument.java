@@ -5,6 +5,8 @@ import program.file.AbstractFile;
 import program.file.FileType;
 
 public abstract class AbstractDocument extends AbstractFile implements DocumentFile{
+    public String fileExtension;
+
     private String creator;
     private String content = "";
     public boolean isOpen;
@@ -42,14 +44,15 @@ public abstract class AbstractDocument extends AbstractFile implements DocumentF
     public void changeDocumentName() {
     // check if the file is on drive and then allow change its name - program later
         if (isOpen) {
-            if (Console.readDecision("Close file first to change it's name! Do you want to close it now? (yes/no): ")) {
+            if (Console.readDecision("Close file first to change its name! Do you want to close it now? (yes/no): ")) {
+                closeDocument();
                 System.out.println("The file has been closed. Please provide a new name for the file.");
             } else {
                 System.out.println("The name change cannot be made, as the user decided to not to close it.");
                 return;
             }
-        } else
-            System.out.println("Please provide a new name for the file: ");
+        }
+
         String newName = Console.userInput("Please provide a new name for the file: ");
         System.out.println("The old name " + name + " has been replaced with the new name: " + newName);
         name = newName;

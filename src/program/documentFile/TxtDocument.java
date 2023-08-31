@@ -3,13 +3,14 @@ package program.documentFile;
 import program.Console;
 
 public class TxtDocument extends AbstractDocument{
+//    private final static
     public TxtDocument(String name, int size, String creator) {
         super(name, size, creator);
     }
     public void updateContent(){
         if (!isOpen) {
-            System.out.println("Open a file first to make any changes in it!");
-            if (actionCheck("Do you want open a file? (yes/no):"))
+//            System.out.println("Open a file first to make any changes in it!");
+            if (actionCheck("Open a file first to make any changes in it!\nDo you want open a file? (yes/no): "))
                 openDocument();
             else {
                 System.out.println("You decided to not to open the file. You cannot make any changes of the file's content while it's closed!");
