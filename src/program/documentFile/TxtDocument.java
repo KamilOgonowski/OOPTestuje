@@ -8,7 +8,7 @@ public class TxtDocument extends AbstractDocument{
     }
     public void updateContent(){
         if (!isOpen) {
-            System.out.println("Open a file first!");
+            System.out.println("Open a file first to make any changes in it!");
             if (actionCheck("Do you want open a file? (yes/no):"))
                 openDocument();
             else {

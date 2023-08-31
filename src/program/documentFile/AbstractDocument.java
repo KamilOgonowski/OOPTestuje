@@ -19,7 +19,7 @@ public abstract class AbstractDocument extends AbstractFile implements DocumentF
         System.out.println(getName() + " is opening");
         displayContent();
     }
-    public void displayContent(){
+    private void displayContent(){
         if (isOpen) {
             if (content.isEmpty()) {
                 System.out.println("The file is empty");
@@ -42,16 +42,18 @@ public abstract class AbstractDocument extends AbstractFile implements DocumentF
     public void changeDocumentName() {
     // check if the file is on drive and then allow change its name - program later
         if (isOpen) {
-            boolean check = Console.readDecision("Close file first to change it's name! Do you want to close it now? (yes/no): ");
-            if (check) {
+            if (Console.readDecision("Close file first to change it's name! Do you want to close it now? (yes/no): ")) {
                 System.out.println("The file has been closed. Please provide a new name for the file.");
-                String newName = Console.scanner.nextLine();
-                System.out.println("The old name " + name + " has been replaced with the new name: " + newName);
-                name = newName;
-            } else
+            } else {
                 System.out.println("The name change cannot be made, as the user decided to not to close it.");
+                return;
+            }
+        } else
+            System.out.println("Please provide a new name for the file: ");
+        String newName = Console.scanner.nextLine();
+        System.out.println("The old name " + name + " has been replaced with the new name: " + newName);
+        name = newName;
         }
-    }
 
     public String getCreator() {
         return creator;

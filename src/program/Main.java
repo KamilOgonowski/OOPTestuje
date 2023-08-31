@@ -29,19 +29,12 @@ public class Main {
 //        System.out.println(gifImageFile1.getVersion());
 
         TxtDocument txtDocument = new TxtDocument("FirstDoc.txt", 460, "xyz");
-//        System.out.println(txtDocument.getName());
         txtDocument.openDocument();
-//        txtDocument.readDocument();
 //        txtDocument.closeDocument();
         txtDocument.changeDocumentName();
-//        System.out.println(txtDocument.getName());
 
         txtDocument.updateContent();
-        txtDocument.displayContent();
-//        System.out.println(txtDocument.getContent());
-//        txtDocument.updateContent();
 
-//        System.out.println(txtDocument.readContent());
 
     }
 }
