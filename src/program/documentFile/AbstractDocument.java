@@ -50,7 +50,7 @@ public abstract class AbstractDocument extends AbstractFile implements DocumentF
             }
         } else
             System.out.println("Please provide a new name for the file: ");
-        String newName = Console.scanner.nextLine();
+        String newName = Console.userInput("Please provide a new name for the file: ");
         System.out.println("The old name " + name + " has been replaced with the new name: " + newName);
         name = newName;
         }
