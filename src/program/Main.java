@@ -30,17 +30,18 @@ public class Main {
 
         TxtDocument txtDocument = new TxtDocument("FirstDoc.txt", 460, "xyz");
 //        System.out.println(txtDocument.getName());
-//        txtDocument.openDocument();
+        txtDocument.openDocument();
 //        txtDocument.readDocument();
 //        txtDocument.closeDocument();
-//        txtDocument.changeDocumentName("After name change.txt");
+        txtDocument.changeDocumentName();
 //        System.out.println(txtDocument.getName());
 
         txtDocument.updateContent();
+        txtDocument.displayContent();
 //        System.out.println(txtDocument.getContent());
 //        txtDocument.updateContent();
 
-        System.out.println(txtDocument.readContent());
+//        System.out.println(txtDocument.readContent());
 
     }
 }

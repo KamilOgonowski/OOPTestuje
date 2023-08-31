@@ -6,6 +6,11 @@ public class Console {
 
      public static Scanner scanner = new Scanner(System.in);
 
+     public static String userInput(String prompt){
+         System.out.println(prompt + " ");
+         return scanner.nextLine();
+     }
+
      public static boolean readDecision(String prompt){
           while (true){
                System.out.println(prompt + " ");

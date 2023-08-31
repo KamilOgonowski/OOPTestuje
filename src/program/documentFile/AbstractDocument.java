@@ -1,5 +1,6 @@
 package program.documentFile;
 
+import program.Console;
 import program.file.AbstractFile;
 import program.file.FileType;
 
@@ -16,14 +17,19 @@ public abstract class AbstractDocument extends AbstractFile implements DocumentF
     public void openDocument() {
         isOpen = true; // write condition tht only when isOpen you can read it
         System.out.println(getName() + " is opening");
+        displayContent();
     }
-    public void readDocument(){
-        if (isOpen)
+    public void displayContent(){
+        if (isOpen) {
+            if (content.isEmpty()) {
+                System.out.println("The file is empty");
+                return;
+            }
             System.out.println(getContent());
+        }
         else
-            System.out.println("To read the file " + getName() + " you must firstly open it!");
+            System.out.println("Nothing to display, as the file  " + getName() + " is closed. \nYou must open it first to see the content!");
     }
-
     public void closeDocument() {
         if(isOpen){
             System.out.println("Closing of the document " + getName());
@@ -33,12 +39,18 @@ public abstract class AbstractDocument extends AbstractFile implements DocumentF
         }
     }
 
-    public void changeDocumentName(String newName) {
+    public void changeDocumentName() {
     // check if the file is on drive and then allow change its name - program later
-        if (isOpen)
-            System.out.println("Close file first to change it's name!");
-        else
-            name = newName;
+        if (isOpen) {
+            boolean check = Console.readDecision("Close file first to change it's name! Do you want to close it now? (yes/no): ");
+            if (check) {
+                System.out.println("The file has been closed. Please provide a new name for the file.");
+                String newName = Console.scanner.nextLine();
+                System.out.println("The old name " + name + " has been replaced with the new name: " + newName);
+                name = newName;
+            } else
+                System.out.println("The name change cannot be made, as the user decided to not to close it.");
+        }
     }
 
     public String getCreator() {
@@ -58,12 +70,12 @@ public abstract class AbstractDocument extends AbstractFile implements DocumentF
         this.content = content;
     }
 
-    public String readContent(){
-        if (getContent().isEmpty()){
-            return "The file " + name + " is empty";
-        } else {
-            System.out.println("Loading of the file " + name + "...");
-            return getContent();
-        }
-    }
+//    public String readContent(){
+//        if (getContent().isEmpty()){
+//            return "The file " + name + " is empty";
+//        } else {
+////            System.out.println("Loading of the file " + name + "...");
+//            return getContent();
+//        }
+//    }
 }
